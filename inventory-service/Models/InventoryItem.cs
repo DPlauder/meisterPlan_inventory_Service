@@ -6,6 +6,7 @@
         public string ArticleNumber { get; set; } = "";
         public int Quantity { get; set; }
         public string Location { get; set; } = "";
+        public string ProductId { get; set; } = "";
 
     }
 }

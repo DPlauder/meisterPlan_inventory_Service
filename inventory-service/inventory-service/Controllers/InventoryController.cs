@@ -10,9 +10,12 @@ namespace InventoryService.Controllers
     public class InventoryController : ControllerBase
     {
         private readonly InventoryContext _context;
-        public InventoryController(InventoryContext context)
+        private readonly ILogger<InventoryController> _logger;
+ 
+        public InventoryController(InventoryContext context, ILogger<InventoryController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -30,11 +33,20 @@ namespace InventoryService.Controllers
             return Ok(item);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Add(InventoryItem newItem)
+        [HttpPost("{artikleNum}")]
+        public async Task<IActionResult> Add(string artikleNum, [FromBody] InventoryItem newItem)
         {
+            newItem.ArticleNumber = artikleNum;
+            
+            _logger.LogWarning("🔴 POST /api/inventory aufgerufen - ArticleNumber: {ArticleNumber}, RequestId: {RequestId}", 
+                newItem.ArticleNumber, HttpContext.TraceIdentifier);
+            
             _context.InventoryItems.Add(newItem);
             await _context.SaveChangesAsync();
+   
+            _logger.LogInformation("✅ Item gespeichert - ID: {Id}, ArticleNumber: {ArticleNumber}", 
+                newItem.Id, newItem.ArticleNumber);
+        
             return CreatedAtAction(nameof(GetBySku), new { artikleNum = newItem.ArticleNumber }, newItem);
         }
 
