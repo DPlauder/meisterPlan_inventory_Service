@@ -442,6 +442,33 @@ Dieses Projekt steht unter der MIT License. Siehe `LICENSE` Datei für Details.
 
 ---
 
+## 🌐 Deployment ins Internet
+
+Um diesen Mikroservice über das Internet erreichbar zu machen, siehe **[DEPLOYMENT.md](DEPLOYMENT.md)**.
+
+### Schnellstart-Optionen:
+
+1. **VPS/Server (Empfohlen für Einsteiger)**
+   - Einfachste Methode
+   - Ab €5/Monat (Hetzner, DigitalOcean)
+   - Docker Compose + Nginx + Let's Encrypt
+   - Siehe: [VPS Deployment Guide](DEPLOYMENT.md#vpsserver-deployment-docker-compose)
+
+2. **Cloud-Plattformen**
+   - **Google Cloud Run**: Serverless, pay-per-use
+   - **Azure Container Instances**: Schnell und einfach
+   - **AWS ECS**: Enterprise-ready
+   - Siehe: [Cloud Deployment Guide](DEPLOYMENT.md#cloud-plattform-deployment)
+
+3. **Kubernetes**
+   - Für hohe Verfügbarkeit und Skalierbarkeit
+   - Manifests verfügbar im `k8s/` Verzeichnis
+   - Siehe: [Kubernetes Guide](DEPLOYMENT.md#kubernetes-deployment)
+
+📖 **Vollständige Anleitung**: [DEPLOYMENT.md](DEPLOYMENT.md)
+
+---
+
 ## 📞 Support
 
 Bei Fragen oder Problemen:
@@ -454,5 +481,5 @@ Bei Fragen oder Problemen:
 ---
 
 **🎯 Status**: ✅ **Produktionsbereit**  
-**📅 Letzte Aktualisierung**: 28. Oktober 2025  
+**📅 Letzte Aktualisierung**: Februar 2026  
 **🏷️ Version**: 1.0.0
