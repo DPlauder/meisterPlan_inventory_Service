@@ -12,10 +12,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["inventory-service/inventory-service.csproj", "inventory-service/"]
-RUN dotnet restore "./inventory-service/inventory-service.csproj"
+COPY ["inventory-service.csproj", "./"]
+RUN dotnet restore "./inventory-service.csproj"
 COPY . .
-WORKDIR "/src/inventory-service"
+WORKDIR "/src"
 RUN dotnet build "./inventory-service.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
