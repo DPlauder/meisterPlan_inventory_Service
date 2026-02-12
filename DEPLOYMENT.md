@@ -29,7 +29,7 @@ Vollständige Anleitung zum Deployment des Inventory Service Mikroservices, soda
 | **VPS (Docker Compose)**  | €5-20/M  | ⭐⭐⭐⭐⭐    | ⭐⭐            | Kleine bis mittlere Apps  |
 | **Kubernetes**            | €20+/M   | ⭐⭐         | ⭐⭐⭐⭐⭐       | Enterprise Apps           |
 | **Azure Container Inst.** | €10-50/M | ⭐⭐⭐⭐      | ⭐⭐⭐          | Schnelle Prototypen       |
-| **AWS ECS**               | €10-50/M | ⭐⭐⭐       | ⭐⭐⭐⭐         | AWS-basierte Infrastrukur |
+| **AWS ECS**               | €10-50/M | ⭐⭐⭐       | ⭐⭐⭐⭐         | AWS-basierte Infrastruktur |
 | **Google Cloud Run**      | €0-50/M  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐⭐         | Serverless Anwendungen    |
 | **DigitalOcean Apps**     | €5-30/M  | ⭐⭐⭐⭐⭐    | ⭐⭐⭐          | Entwickler-freundlich     |
 
