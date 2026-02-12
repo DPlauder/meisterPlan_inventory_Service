@@ -13,17 +13,17 @@ metadata:
 spec:
   ingressClassName: nginx
   tls:
-  - hosts:
-    - inventory.example.com  # Ersetzen Sie dies mit Ihrer Domain
-    secretName: inventory-tls
+    - hosts:
+        - inventory.example.com
+      secretName: inventory-tls
   rules:
-  - host: inventory.example.com  # Ersetzen Sie dies mit Ihrer Domain
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: inventory-service
-            port:
-              number: 80
+    - host: inventory.example.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: inventory-service
+                port:
+                  number: 80

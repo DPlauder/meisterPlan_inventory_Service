@@ -14,41 +14,43 @@ spec:
         app: inventory-service
     spec:
       containers:
-      - name: inventory-service
-        image: ghcr.io/dplauder/meisterplan_inventory_service:latest
-        ports:
-        - containerPort: 8080
-        env:
-        - name: ASPNETCORE_ENVIRONMENT
-          valueFrom:
-            configMapKeyRef:
-              name: inventory-service-config
-              key: ASPNETCORE_ENVIRONMENT
-        - name: ASPNETCORE_URLS
-          value: "http://+:8080"
-        - name: ConnectionStrings__DefaultConnection
-          value: "Host=postgres;Database=inventorydb;Username=postgres;Password=$(POSTGRES_PASSWORD)"
-        - name: POSTGRES_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: inventory-secrets
-              key: POSTGRES_PASSWORD
-        resources:
-          requests:
-            memory: "256Mi"
-            cpu: "250m"
-          limits:
-            memory: "512Mi"
-            cpu: "500m"
-        livenessProbe:
-          httpGet:
-            path: /api/inventory
-            port: 8080
-          initialDelaySeconds: 60
-          periodSeconds: 10
-        readinessProbe:
-          httpGet:
-            path: /api/inventory
-            port: 8080
-          initialDelaySeconds: 30
-          periodSeconds: 5
+        - name: inventory-service
+          image: ghcr.io/dplauder/meisterplan_inventory_service:latest
+          ports:
+            - containerPort: 8080
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: inventory-service-config
+                  key: ASPNETCORE_ENVIRONMENT
+            - name: ASPNETCORE_URLS
+              value: "http://+:8080"
+            - name: ConnectionStrings__DefaultConnection
+              value: >-
+                Host=postgres;Database=inventorydb;
+                Username=postgres;Password=$(POSTGRES_PASSWORD)
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: inventory-secrets
+                  key: POSTGRES_PASSWORD
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "512Mi"
+              cpu: "500m"
+          livenessProbe:
+            httpGet:
+              path: /api/inventory
+              port: 8080
+            initialDelaySeconds: 60
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /api/inventory
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 5

@@ -9,4 +9,5 @@ spec:
   resources:
     requests:
       storage: 5Gi
-  # storageClassName: standard  # Passen Sie dies an Ihren Cloud-Provider an
+  # Passen Sie dies an Ihren Cloud-Provider an
+  # storageClassName: standard
